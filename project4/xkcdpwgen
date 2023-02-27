@@ -40,7 +40,6 @@ while (defaultCaps < args.caps):
  defaultCaps += 1
 
 subLoW = subLoW + capsList
-
 random.shuffle(subLoW)
 
 
@@ -48,15 +47,16 @@ defaultNum = 0
 numList = []
 if (args.numbers > 0):
  while (defaultNum < args.numbers):
-  tempList = [str(random.randint(0, 9))]
+  LoN = [str(random.randint(0, 9))]
   defaultNum += 1
-  numList = numList + tempList
+  numList = numList + LoN
 
 subLoW = subLoW + numList
 random.shuffle(subLoW)
 
 
-
+defaultSym = 0
+subList = []
 if (args.symbols > 0):
     symsList = set(string.punctuation)
     subSyms = random.sample(symsList, args.symbols)
