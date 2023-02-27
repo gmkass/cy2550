@@ -31,7 +31,7 @@ subLoW = random.sample(LoW, args.words)
 
 defaultCaps = 0
 List1 = list()
-if 0 < args.caps and args.words >= args.caps:
+if args.caps > 0 and args.words >= args.caps:
  subCaps = random.sample(subLoW, args.caps)
  subLoW = list(set(subLoW) - set(subCaps))
 while args.caps > defaultCaps:
