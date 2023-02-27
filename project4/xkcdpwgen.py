@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-import random
 import argparse
+import random
+
 import string
 from string import punctuation
 
@@ -9,9 +10,8 @@ from string import punctuation
 parser = argparse.ArgumentParser(description = "Generate a secure, memorable password using the XKCD method")
 
 
-
 parser.add_argument("-w", "--words", type=int, default=4,
- help="include WORDS words in the password")
+help="include WORDS words in the password")
 
 parser.add_argument("-c", "--caps", type=int, default=0,
 help="capitalize the first letter of CAPS random words")
@@ -24,47 +24,43 @@ help="insert SYMBOLS random symbols in the password")
 
 args = parser.parse_args()
 
-openLoW = open("words.txt")
-
-LoW = openLoW.read().splitlines()
-
+readLoW = open("words.txt")
+LoW = readLoW.read().splitlines()
 subLoW = random.sample(LoW, args.words)
 
 
 defaultCaps = 0
-capsList = []
-if (args.caps > 0 and args.caps <= args.words):
+List1 = list()
+if 0 < args.caps and args.words >= args.caps:
  subCaps = random.sample(subLoW, args.caps)
  subLoW = list(set(subLoW) - set(subCaps))
-while (defaultCaps < args.caps):
- capsList.append(subCaps[defaultCaps].title())
+while args.caps > defaultCaps:
+ List1.append(subCaps[defaultCaps].title())
  defaultCaps += 1
-
-subLoW = subLoW + capsList
-
+subLoW = List1 + subLoW
 random.shuffle(subLoW)
 
 
 defaultNum = 0
-numList = []
-if (args.numbers > 0):
- while (defaultNum < args.numbers):
-  tempList = [str(random.randint(0, 9))]
+List2 = list()
+if 0 < args.numbers:
+ while args.numbers > defaultNum:
+  LoN = [str(random.randint(0, 9))]
   defaultNum += 1
-  numList = numList + tempList
-
-subLoW = subLoW + numList
+ List2 = LoN + List2
+subLoW = List2 + subLoW
 random.shuffle(subLoW)
 
 
-
-if (args.symbols > 0):
-    symsList = set(string.punctuation)
-    subSyms = random.sample(symsList, args.symbols)
-
-    subLoW = subLoW + subSyms
+defaultSym = 0
+LoS = list()
+if 0 < args.symbols:
+    List3 = set(string.punctuation)
+    subSyms = random.sample(List3, args.symbols)
+    subLoW = subSyms + subLoW
     random.shuffle(subLoW)
 
 
-password ="".join(subLoW)
-print(password)
+genPassword ="".join(subLoW)
+
+print(genPassword)
