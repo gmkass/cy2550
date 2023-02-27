@@ -9,7 +9,6 @@ from string import punctuation
 parser = argparse.ArgumentParser(description = "Generate a secure, memorable password using the XKCD method")
 
 
-
 parser.add_argument("-w", "--words", type=int, default=4,
  help="include WORDS words in the password")
 
