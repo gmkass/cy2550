@@ -46,9 +46,9 @@ random.shuffle(subLoW)
 
 # for insert random Numbers
 defaultNum = 0
-List2 = []
-if args.numbers > 0:
- while defaultNum < args.numbers:
+List2 = list()
+if (args.numbers > 0):
+ while (defaultNum < args.numbers):
   LoN = [str(random.randint(0, 9))]
   defaultNum += 1
  List2 = List2 + LoN
