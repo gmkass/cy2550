@@ -31,7 +31,7 @@ subLoW = random.sample(LoW, args.words)
 
 defaultCaps = 0
 List1 = list()
-if args.caps > 0 and args.words >= args.caps:
+if 0 < args.caps and args.words >= args.caps:
  subCaps = random.sample(subLoW, args.caps)
  subLoW = list(set(subLoW) - set(subCaps))
 while args.caps > defaultCaps:
@@ -47,7 +47,7 @@ if 0 < args.numbers:
  while args.numbers > defaultNum:
   LoN = [str(random.randint(0, 9))]
   defaultNum += 1
- List2 = LoN + List2
+ List2 = List2 + LoN
 subLoW = List2 + subLoW
 random.shuffle(subLoW)
 
