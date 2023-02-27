@@ -44,11 +44,11 @@ random.shuffle(subLoW)
 defaultNum = 0
 List2 = list()
 if 0 < args.numbers:
- while args.numbers > defaultNum:
+ while defaultNum > args.numbers:
   LoN = [str(random.randint(0, 9))]
   defaultNum += 1
  List2 = List2 + LoN
-subLoW = List2 + subLoW
+subLoW = subLoW + List2
 random.shuffle(subLoW)
 
 
