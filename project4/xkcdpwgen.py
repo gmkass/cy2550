@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 
 import argparse
@@ -31,39 +32,27 @@ LoW = readLoW.read().splitlines()
 subLoW = random.sample(LoW, args.words)
 
 
-# for randomized Caps
-defaultCaps = 0
-List1 = list()
-if 0 < args.caps and args.words >= args.caps:
- subCaps = random.sample(subLoW, args.caps)
- subLoW = list(set(subLoW) - set(subCaps))
-while args.caps > defaultCaps:
- List1.append(subCaps[defaultCaps].title())
- defaultCaps += 1
-subLoW = List1 + subLoW
-random.shuffle(subLoW)
+def get_random_caps(subLoW, num_caps):
+    caps = random.sample(subLoW, num_caps)
+    return [word.title() if word in caps else word for word in subLoW], caps
 
-# for insert random Numbers
-defaultNum = 0
-List2 = list()
+def get_random_nums(num_nums):
+    return [str(random.randint(0, 9)) for _ in range(num_nums)]
+
+def get_random_syms(num_syms):
+    return random.sample(string.punctuation, num_syms)
+
+
+if args.caps > 0 and args.words >= args.caps:
+    subLoW, subCaps = get_random_caps(subLoW, args.caps)
+
 if args.numbers > 0:
- while defaultNum < args.numbers:
-  LoN = [str(random.randint(0, 9))]
-  defaultNum += 1
-  List2 = List2 + LoN
-subLoW = subLoW + List2
+    subLoW += get_random_nums(args.numbers)
+
+if args.symbols > 0:
+    subLoW = get_random_syms(args.symbols) + subLoW
+
 random.shuffle(subLoW)
-
-# for insert random Symbols
-defaultSym = 0
-LoS = list()
-if 0 < args.symbols:
-    List3 = set(string.punctuation)
-    subSyms = random.sample(List3, args.symbols)
-    subLoW = subSyms + subLoW
-    random.shuffle(subLoW)
-
 
 genPassword ="".join(subLoW)
-
 print(genPassword)
