@@ -51,7 +51,7 @@ if (args.numbers > 0):
  while (defaultNum < args.numbers):
   LoN = [str(random.randint(0, 9))]
   defaultNum += 1
- List2 = List2 + LoN
+  List2 = List2 + LoN
 subLoW = subLoW + List2
 random.shuffle(subLoW)
 
