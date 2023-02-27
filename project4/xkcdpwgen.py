@@ -24,11 +24,13 @@ help="insert SYMBOLS random symbols in the password")
 
 args = parser.parse_args()
 
+# opens word list text file
 readLoW = open("words.txt")
 LoW = readLoW.read().splitlines()
 subLoW = random.sample(LoW, args.words)
 
 
+# for randomized Caps
 defaultCaps = 0
 List1 = list()
 if 0 < args.caps and args.words >= args.caps:
@@ -41,17 +43,19 @@ subLoW = List1 + subLoW
 random.shuffle(subLoW)
 
 
+
+# for insert random Numbers
 defaultNum = 0
 List2 = list()
-if 0 < args.numbers:
- while args.numbers > defaultNum:
+if (args.numbers > 0):
+ while (defaultNum < args.numbers):
   LoN = [str(random.randint(0, 9))]
   defaultNum += 1
- List2 = LoN + List2
-subLoW = List2 + subLoW
+ List2 = List2 + LoN
+subLoW = subLoW + List2
 random.shuffle(subLoW)
 
-
+# for insert random Symbols
 defaultSym = 0
 LoS = list()
 if 0 < args.symbols:
