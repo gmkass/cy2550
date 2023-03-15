@@ -48,3 +48,4 @@ tasticsupreme:GXK1
 aquaverit:ylDf
 cacklynet:b6MwQ
 sparkbear:$1$oF$JOC3xjfrCWC2l/F6rQE8o0
+# cracked 49 of the 50 passwords, guessing 'sparkbear' is a 8-char brute force
