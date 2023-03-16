@@ -1,4 +1,4 @@
-# cracked 49 of the 50 passwords, guessing 'sparkbear' is a 8-char brute force
+# cracked 48 of the 50 passwords
 
 teeratec:mustang
 struping:pepper
@@ -48,5 +48,5 @@ aimetrans:donates$3
 chilledmiracle:forbearing%~
 tasticsupreme:GXK1
 aquaverit:ylDf
-cacklynet:b6MwQ
+cacklynet:$1$q7$lICfWYBUUm7439N72K6WL/
 sparkbear:$1$oF$JOC3xjfrCWC2l/F6rQE8o0
