@@ -1,13 +1,15 @@
 # Last Modified: Tue Mar 28 12:08:08 2023
 abi <abi/3.0>,
+
 include <tunables/global>
 /home/gmk/p2 flags=(audit) {
   include <abstractions/base>
   include <abstractions/user-tmp>
+
 network tcp,
-/home/gmk/p2 mr, 
+/home/gmk/p2 rw, 
 /home/gmk/template rw,
-/home/gmk/.project2/config w,
+/home/gmk/.project2/config rw,
 /var/log/syslog r,
 /etc/fstab r,
 /etc/hosts r, 
@@ -15,5 +17,7 @@ network tcp,
 /etc/passwd r,
 /proc/version r, 
 /proc/buddyinfo r,
-/run/systemd/resolve/stub-resolv.conf rw,
+/proc/uptime r,
+/run/systemd/resolve/stub-resolv.conf r,
+deny /proc/meminfo r,
 }
